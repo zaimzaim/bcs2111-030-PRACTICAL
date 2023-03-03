@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{text-align: center;
+        color: blue;}
+        hr{border-width: 5px;
+        border-color: red;}
+        
+    </style>
+</head>
+<body>
+    {% load static %} <img src="{% static "1marakpmb-merah.png" %}" alt="home"  width="100%" height="150px"/>
+    <br><br>
+    <hr><hr>
+    <br><br><br>
+    <h1>USER COMMENT</h1>
+    <br>
+    <form  action="u_comment" method="post">
+        {% csrf_token %}
+            Name: <input name="name" type="text">
+            <br><br>
+            Comment: <input name="text" type="text" style="width: 200px; height: 100px;">
+            <br><br>
+            <input type="submit" value="SAVE">
+    </form>
+    <br><br>
+Comment
+<br><br>
+{% for data in allcomment %}
+    Name: {{data.name}}<br>
+   <input type="text" value="{{data.text}}" style="width: 500px; height: 100px;"> 
+    
+    <br><br>
+{% endfor %}
+
+</body>
+</html>
